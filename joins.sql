@@ -1,4 +1,14 @@
 
+CREATE TABLE `active_customer` (
+  `customer_id` smallint(5) unsigned NOT NULL,
+  `fav_color_id` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `reward_customer` (
+  `customer_id` smallint(5) unsigned NOT NULL,
+  `no_purchases` tinyint(3) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 # Simple Inner JOIN 
  SELECT 
  	ac. customer_id,
