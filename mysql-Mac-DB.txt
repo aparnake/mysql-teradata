@@ -1,0 +1,102 @@
+
+
+
+Steps to Install/Setup MySQL on Mac:
+
+1. Install Homebrew through the Terminal
+        --> Open terminal
+        --> visit http://brew.sh/
+        --> PASTE INTO TERMINAL: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+2. Install MySQL using Homebrew
+        --> PASTE INTO TERMINAL: brew install mysql
+
+3. Set your password
+        PASTE THE FOLLOWING COMMANDS INTO TERMINAL
+        --> PASTE INTO TERMINAL: mysql.server start
+        --> PASTE INTO TERMINAL: mysql.server stop
+        --> PASTE INTO TERMINAL: mysqld_safe --skip-grant-tables
+
+    OPEN NEW TAB IN TERMINAL
+
+        --> PASTE INTO TERMINAL: mysql -u root
+
+    REPLACE 'password' WITH YOUR DESIRED PASSWORD WITHIN THE SINGLE QUOTES i.e. 'Pass1234!'
+    THIS WILL BE WHAT YOU USE TO LOGIN TO MYSQL AND SEQUEL PRO MOVING FORWARD
+
+        --> PASTE INTO TERMINAL (including semicolon): UPDATE mysql.user SET authentication_string=PASSWORD('password') WHERE User='root';
+        --> PASTE INTO TERMINAL: FLUSH PRIVILEGES;
+
+    CLOSE THIS TAB OF THE TERMINAL AND OPEN A NEW ONE
+
+        --> PASTE INTO TERMINAL: mysql -u root -p
+
+    You will be prompted to enter the password you set above: Enter password you set above without single quotes
+
+    REPLACE 'password' WITH YOUR DESIRED PASSWORD WITHIN THE SINGLE QUOTES i.e. 'Pass1234!'
+
+        --> PASTE INTO TERMINAL: ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+
+    YOU ARE DONE WITH THE TERMINAL!!!!
+
+4. Download Sequel Pro
+        --> http://www.sequelpro.com/download
+        --> Download and open Application
+
+5. Set Login in Sequel Pro
+        --> Choose the 'Socket' option
+        --> NAME: SQLforNEWBS
+        --> USERNAME: root
+        --> PASSWORD: enter password you set above without single quotes
+        --> Before clicking 'Connect', click 'Save to Favorites'
+
+6. Download and Install the Sakila DB
+        --> Download the DB file from the 'Resources' Section of this lecture!
+        --> Open the .zip file 
+        --> Drag and Drop the file sakila-schema.sql into the 'Query' tab in Sequel Pro
+              --> Select All 
+              --> Click 'Run'
+        --> Drag and Drop the file sakila-data.sql into the 'Query' tab in Sequel Pro
+              --> Select All 
+              --> Click 'Run'
+
+Enjoy the course!!!
+
+```
+Last login: Fri Jul 14 14:38:31 on ttys005
+aparnake-MBP-2:bin aparnake$ brew install mysql
+Updating Homebrew...
+==> Downloading https://homebrew.bintray.com/bottles/mysql-5.7.18_1.sierra.bottle.tar.gz
+Already downloaded: /Users/aparnake/Library/Caches/Homebrew/mysql-5.7.18_1.sierra.bottle.tar.gz
+==> Pouring mysql-5.7.18_1.sierra.bottle.tar.gz
+==> Using the sandbox
+==> Caveats
+We've installed your MySQL database without a root password. To secure it run:
+    mysql_secure_installation
+
+MySQL is configured to only allow connections from localhost by default
+
+To connect run:
+    mysql -uroot
+
+To have launchd start mysql now and restart at login:
+  brew services start mysql
+Or, if you don't want/need a background service you can just run:
+  mysql.server start
+==> Summary
+🍺  /usr/local/Cellar/mysql/5.7.18_1: 321 files, 232.9MB
+aparnake-MBP-2:bin aparnake$ mysqladmin -u root password 'password'
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.
+aparnake-MBP-2:bin aparnake$ brew services start mysql
+==> Tapping homebrew/services
+Cloning into '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-services'...
+remote: Counting objects: 12, done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 12 (delta 0), reused 7 (delta 0), pack-reused 0
+Unpacking objects: 100% (12/12), done.
+Tapped 0 formulae (40 files, 53.9KB)
+==> Successfully started `mysql` (label: homebrew.mxcl.mysql)
+aparnake-MBP-2:bin aparnake$ 
+
+```
