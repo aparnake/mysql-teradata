@@ -1,5 +1,5 @@
 # mysql-teradata
-## Tools Use:
+## Tools Used:
 DataBases
 Mysql
 Teradata
