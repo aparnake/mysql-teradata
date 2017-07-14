@@ -1,12 +1,12 @@
 
 # MySQL Queues 
-```
+
 select payment.customer_id, count(payment.customer_id), sum(payment.amount)
 from
 	payment
 group by 
 	payment.customer_id;
-```
+
 
 select payment.customer_id, count(payment.customer_id)
 from
