@@ -1,5 +1,5 @@
 
-
+# https://blog.kissmetrics.com/cohort-and-multi-touch-attribution/
 # COHART: Good for seeing retention. Looking for imprv in engaging our customers.
 # Customers First Rental
 DROP TEMPORARY TABLE IF EXISTS first_rental;
